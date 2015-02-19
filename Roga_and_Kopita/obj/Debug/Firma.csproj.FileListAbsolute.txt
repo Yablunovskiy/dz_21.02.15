@@ -1,0 +1,6 @@
+D:\Учеба\С#_5.0\DZ\DZ_21.02.14\Roga_and_Kopita\Roga_and_Kopita\bin\Debug\Roga_and_Kopita.exe.config
+D:\Учеба\С#_5.0\DZ\DZ_21.02.14\Roga_and_Kopita\Roga_and_Kopita\bin\Debug\Roga_and_Kopita.exe
+D:\Учеба\С#_5.0\DZ\DZ_21.02.14\Roga_and_Kopita\Roga_and_Kopita\bin\Debug\Roga_and_Kopita.pdb
+D:\Учеба\С#_5.0\DZ\DZ_21.02.14\Roga_and_Kopita\Roga_and_Kopita\obj\Debug\Firma.csprojResolveAssemblyReference.cache
+D:\Учеба\С#_5.0\DZ\DZ_21.02.14\Roga_and_Kopita\Roga_and_Kopita\obj\Debug\Roga_and_Kopita.exe
+D:\Учеба\С#_5.0\DZ\DZ_21.02.14\Roga_and_Kopita\Roga_and_Kopita\obj\Debug\Roga_and_Kopita.pdb

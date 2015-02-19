@@ -12,7 +12,7 @@ namespace Firma
 
         public Firma()
         {
-
+            Firm = null;
         }
 
         public Firma(string Name,int Age, bool Gender,int Salary, Profession Prof)
@@ -30,10 +30,22 @@ namespace Firma
         //    return Firm.
         //}
 
-        public void Delete(int ind)
+        //public void Delete(int ind)
+        //{
+        //    Firm.RemoveAt(ind);
+        //}
+
+        public static Firma operator -(Firma Firm, int ind)          //перегрузка (удаляем элимент с индексом ind)
         {
             Firm.RemoveAt(ind);
+            return Firm;
         }
 
-    }
+        public static Firma operator +(Firma Firm, Employee A)       //перегрузка (добавляем работника)
+        {
+            Firm.Add(A);
+            return Firm;
+        }
+
+     }
 }
