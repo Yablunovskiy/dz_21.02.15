@@ -10,12 +10,12 @@ namespace Firma
     {
         static void Main(string[] args)
         {
-            window();
+            string TITL="Табель фирмы \"РОГА and Ko\" по состоянию на ";
+            window( TITL);
             List<Profession> Pr = new List<Profession>();
             Firma RG=new Firma();
             Our_Profession(ref Pr);
             Our_Staff(ref RG, Pr);
-            Fond();
             Searce(ref Pr, ref RG);
         }
 
@@ -36,14 +36,20 @@ namespace Firma
                     bFlag = true;
                     if (nCount == 2)
                     {
+                        Console.Beep(300, 250);
                         bFlag = false;
                         break;
                     }
                     if (nCount == 0)
                     {
+                        Console.Beep(500,300);
                         First(ref Pr, ref RG);
                     }
-                    else Second(Pr, RG);
+                    if (nCount == 1)
+                    {
+                        Console.Beep(2000,300);
+                        Second(Pr, RG);
+                    }
                 }
 
                 if (ConsoleKey.DownArrow == keyDown.Key || ConsoleKey.RightArrow == keyDown.Key)
@@ -491,13 +497,13 @@ namespace Firma
                 Console.BackgroundColor = ConsoleColor.White;
                 Console.ForegroundColor = ConsoleColor.Blue;
             }
-        }
+        }         //фон при выборе
 
         static void Fond()
         {
             Console.BackgroundColor = ConsoleColor.White;
             Console.ForegroundColor = ConsoleColor.Blue;
-        }
+        }         //фон рабочего стола
 
         static void Our_Profession(ref List<Profession> Pr)
         {
@@ -511,7 +517,7 @@ namespace Firma
             Pr.Add(new Profession() { Prof = "Упоковщик", id = 500 });
             Pr.Add(new Profession() { Prof = "Бухгалтер", id = 900 });
             Pr.Add(new Profession() { Prof = "Директор", id = 1000 });
-        }
+        }      //заполняем список профессий
 
         static void Our_Staff(ref Firma RG, List<Profession> Pr)
         {
@@ -525,7 +531,7 @@ namespace Firma
             RG.Add(new Employee("Зинаида", 30, false, 5000, Pr.ElementAt(7)));
             RG.Add(new Employee("Наталья Барисовна", 58, false, 9000, Pr.ElementAt(8)));
             RG.Add(new Employee("Владимир Владимирович", 62, true, 10, Pr.ElementAt(9)));
-        }
+        }      //заполняем список сотрудников
 
         static void ADD1(List<Profession> Pr, ref Firma RG)
         {
@@ -539,8 +545,8 @@ namespace Firma
 
         static void Print (Employee a)
         {
-            Console.Write("\n  Имя: {0},\tВозраст: {1} лет,  Пол: {2},   Зарплата: {3}$.   ", a.GetName(), a.GetAge(), a.GetGender(), a.GetSalary());
-        }
+            Console.Write("\n  Имя: {0},\tВозраст: {1} лет,  Пол: {2},   Зарплата: {3:c}.   ", a.GetName(), a.GetAge(), a.GetGender(), a.GetSalary());
+        }      //печпать сотрудников
 
         static void Edit(List<Profession> Pr, ref Firma RG)
         {
@@ -584,6 +590,7 @@ namespace Firma
                     }
                     catch (Exception ex)
                     {
+                        Console.Beep(3000, 500);
                         Console.WriteLine(ex.Message);
                         Console.Write("\t Введите пол (муж - 1 или жен - 0) -> ");
                         k = Convert.ToInt32(Console.ReadLine());
@@ -598,6 +605,7 @@ namespace Firma
                     }
                     catch (Exception ex)
                     {
+                        Console.Beep(3000, 500);
                         Console.WriteLine(ex.Message);
                         Console.Write("\t Введите возраст (лет)-> ");
                         age = Convert.ToInt32(Console.ReadLine());
@@ -609,6 +617,7 @@ namespace Firma
                     }
                     catch (Exception ex)
                     {
+                        Console.Beep(3000, 500);
                         Console.WriteLine(ex.Message);
                         Console.Write("\t Введите размер зарплаты ($.)-> ");
                         salary = Convert.ToInt32(Console.ReadLine());
@@ -778,14 +787,16 @@ namespace Firma
             return v;
         }
 
-        static void window()
+        static void window(string TITL)
         {
+            Console.Title = (TITL+DateTime.Now.ToString());
             //int left=20, top=Console.WindowTop-10;
             Console.SetWindowPosition(Console.WindowLeft, 0);
             int origWidth, origHeight;
             origWidth = (int)(Console.WindowWidth*1.1);
             origHeight = (int)(Console.WindowHeight * 2.5);
             Console.SetWindowSize(origWidth, origHeight);
+            Fond();
             
         }
     }
